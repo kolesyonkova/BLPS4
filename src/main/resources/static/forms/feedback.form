@@ -1,0 +1,43 @@
+{
+  "components": [
+    {
+      "label": "Введите id оцениваемого видео:",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_07yovsj",
+        "columns": null
+      },
+      "id": "Field_04xqzj4",
+      "key": "videoId",
+      "validate": {
+        "minLength": 1,
+        "maxLength": 256,
+        "required": true,
+        "pattern": "^[0-9]+$"
+      }
+    },
+    {
+      "label": "Даёте свой аппрув этому видео?",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_0qllhmv",
+        "columns": null
+      },
+      "id": "Field_0zn9afv",
+      "key": "isApproved",
+      "defaultValue": false,
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "feedback-form",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.11.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 8
+}

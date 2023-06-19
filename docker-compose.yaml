@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+  db:
+    container_name: demo_postgres
+    image: "postgres"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "15432:5432"
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: "rabbitmq:3.10.6-management-alpine"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  pgadmin:
+    container_name: demo_pgadmin
+    image: "dpage/pgadmin4"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres@example.ru
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "5050:80"
+
+volumes:
+  postgres_data: {}
