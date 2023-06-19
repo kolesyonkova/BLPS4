@@ -16,6 +16,15 @@ public class ProductMapper {
         );
     }
 
+    public ProductDTO toDto(String name, Float weight, String consumerInfo) {
+        return new ProductDTO(
+                null,
+                name,
+                weight,
+                consumerInfo
+        );
+    }
+
     public Product fromDto(ProductDTO productDTO) {
         return new Product(
                 productDTO.getName(),
