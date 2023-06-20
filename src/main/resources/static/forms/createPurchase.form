@@ -1,43 +1,41 @@
 {
   "components": [
     {
-      "label": "Введите название видео:",
+      "label": "Введите артикул продукта:",
       "type": "textfield",
       "layout": {
         "row": "Row_0gd3mcy",
         "columns": null
       },
       "id": "Field_0tgfqgh",
-      "key": "name",
+      "key": "productId",
       "validate": {
-        "minLength": 3,
+        "minLength": 1,
         "maxLength": 256,
         "required": true
       }
     },
     {
-      "label": "Введите ссылку на видео:",
-      "type": "textfield",
+      "label": "Введите минимальное количество продукта, необходимое для оформления заказа:",
+      "type": "number",
       "layout": {
-        "row": null,
+        "row": "Row_1nje85t",
         "columns": null
       },
-      "id": "Field_04xqzj4",
-      "key": "link",
+      "id": "Field_19hrolr",
+      "key": "minCount",
       "validate": {
-        "minLength": 3,
-        "maxLength": 256,
         "required": true
       }
     }
   ],
   "type": "default",
-  "id": "video-form",
+  "id": "purchase-form",
   "exporter": {
     "name": "Camunda Modeler",
-    "version": "5.11.0"
+    "version": "5.12.0"
   },
   "executionPlatform": "Camunda Platform",
   "executionPlatformVersion": "7.19.0",
-  "schemaVersion": 8
+  "schemaVersion": 9
 }

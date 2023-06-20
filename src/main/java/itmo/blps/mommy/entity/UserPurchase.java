@@ -32,4 +32,13 @@ public class UserPurchase {
     public UserPurchase(Integer userId, Integer purchaseId) {
         this.id = new UserPurchaseKey(userId, purchaseId);
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id.getPurchaseId() +
+                ", dateCreated=" + dateCreated +
+                ", productsCount=" + productsCount +
+                '}';
+    }
 }

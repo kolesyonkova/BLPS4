@@ -35,7 +35,7 @@ public class CreateProduct implements JavaDelegate {
 
         } catch (Throwable throwable) {
             delegateExecution.setVariable("error", throwable.getMessage());
-            throw new BpmnError("getVideos_error", throwable.getMessage());
+            throw new BpmnError("error", throwable.getMessage());
         }
     }
 }

@@ -15,6 +15,5 @@ public class TokenService {
 
     public static void putUserToken(String userId, String token) {
         userTokens.put(userId, token);
-        System.out.println(userTokens);
     }
 }

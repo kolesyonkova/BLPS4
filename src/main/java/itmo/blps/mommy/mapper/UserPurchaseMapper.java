@@ -11,4 +11,8 @@ public class UserPurchaseMapper {
                 .setPurchaseId(userPurchase.getId().getPurchaseId())
                 .setCountOfProducts(userPurchase.getProductsCount());
     }
+
+    public OrderPurchaseDto toDto(Integer purchaseId, Integer count) {
+        return new OrderPurchaseDto(purchaseId, count);
+    }
 }

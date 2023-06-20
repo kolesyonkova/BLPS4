@@ -26,6 +26,13 @@ public class PurchaseMapper {
         );
     }
 
+    public PurchaseRequestDTO toDto(Integer productId, Integer minCount) {
+        return new PurchaseRequestDTO(
+                minCount,
+                productId
+        );
+    }
+
     public PurchaseResponseDTO toDto(Purchase purchase) {
         return new PurchaseResponseDTO(
                 purchase.getId(),

@@ -33,6 +33,6 @@ public class PurchaseDbService {
 
     @Transactional
     public void delete(Purchase purchase) throws Exception {
-        purchaseRepository.delete(purchase);
+        purchaseRepository.deletePurchase(purchase.getId());
     }
 }

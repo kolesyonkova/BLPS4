@@ -9,12 +9,14 @@ import itmo.blps.mommy.mapper.UserPurchaseMapper;
 import itmo.blps.mommy.repository.PurchaseRepository;
 import itmo.blps.mommy.service.database.UserPurchaseDbService;
 import lombok.AllArgsConstructor;
+import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -64,5 +66,11 @@ public class OrderPurchaseService {
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findByEmail(userName);
         return userPurchaseDbService.findAllByUserId(user.getId(), PageRequest.of(page, pageSize));
+    }
+
+    public List<UserPurchase> getMyOrders() {
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findByEmail(userName);
+        return userPurchaseDbService.findAllByUserId(user.getId());
     }
 }

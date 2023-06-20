@@ -31,6 +31,11 @@ public class UserPurchaseDbService {
         return userPurchaseRepository.findAllById_UserId(userId, pageable);
     }
 
+    @Transactional(readOnly = true)
+    public List<UserPurchase> findAllByUserId(Integer userId) {
+        return userPurchaseRepository.findAllById_UserId(userId);
+    }
+
     @Transactional
     public UserPurchase create(UserPurchase userPurchase) {
         return userPurchaseRepository.save(userPurchase);

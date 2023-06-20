@@ -19,5 +19,7 @@ public interface UserPurchaseRepository extends JpaRepository<UserPurchase, Inte
 
     Page<UserPurchase> findAllById_UserId(Integer userId, Pageable pageable);
 
+    List<UserPurchase> findAllById_UserId(Integer userId);
+
     List<UserPurchase> findAllById_PurchaseId(Integer purchaseId);
 }
