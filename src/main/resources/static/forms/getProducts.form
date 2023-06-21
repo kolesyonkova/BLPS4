@@ -22,7 +22,8 @@
       "key": "page",
       "validate": {
         "minLength": 1,
-        "pattern": "^[1-9]\\d*$"
+        "pattern": "^[1-9]\\d*$",
+        "required": true
       }
     },
     {
@@ -36,7 +37,8 @@
       "key": "per_page",
       "validate": {
         "minLength": 1,
-        "pattern": "^[1-9]\\d*$"
+        "pattern": "^[1-9]\\d*$",
+        "required": true
       }
     }
   ],

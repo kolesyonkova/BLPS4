@@ -42,7 +42,8 @@
       "key": "consumerInfo",
       "validate": {
         "minLength": 3,
-        "maxLength": 256
+        "maxLength": 256,
+        "required": true
       }
     }
   ],
