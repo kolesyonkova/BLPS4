@@ -1,8 +1,7 @@
-package itmo.blps.mommy.delegate.admin;
+package itmo.blps.mommy.delegate.user;
 
 
 import itmo.blps.mommy.dto.ProductDTO;
-import itmo.blps.mommy.mapper.ProductMapper;
 import itmo.blps.mommy.service.DelegateAuthChecker;
 import itmo.blps.mommy.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -18,19 +17,16 @@ import static org.camunda.spin.Spin.JSON;
 @Component
 @Named
 @RequiredArgsConstructor
-public class CreateProduct implements JavaDelegate {
+public class GetProduct implements JavaDelegate {
     private final DelegateAuthChecker delegateAuthChecker;
     private final ProductService productService;
-    private final ProductMapper productMapper;
 
     @Override
     public void execute(DelegateExecution delegateExecution) {
         try {
-            delegateAuthChecker.checkAdminAuth(delegateExecution);
-            String name = String.valueOf(delegateExecution.getVariable("name"));
-            Float weight = Float.valueOf(String.valueOf(delegateExecution.getVariable("weight")).replaceAll(",", "."));
-            String consumerInfo = String.valueOf(delegateExecution.getVariable("consumerInfo"));
-            ProductDTO productDtoResult = productService.createProduct(productMapper.toDto(null, name, weight, consumerInfo));
+            delegateAuthChecker.checkUserAuth(delegateExecution);
+            Integer id = Integer.valueOf(String.valueOf(delegateExecution.getVariable("id")));
+            ProductDTO productDtoResult = productService.getProduct(id);
             delegateExecution.setVariable("result", JSON(productDtoResult).toString());
 
         } catch (Throwable throwable) {

@@ -18,7 +18,7 @@ import static org.camunda.spin.Spin.JSON;
 @Component
 @Named
 @RequiredArgsConstructor
-public class CreateProduct implements JavaDelegate {
+public class UpdateProduct implements JavaDelegate {
     private final DelegateAuthChecker delegateAuthChecker;
     private final ProductService productService;
     private final ProductMapper productMapper;
@@ -27,10 +27,11 @@ public class CreateProduct implements JavaDelegate {
     public void execute(DelegateExecution delegateExecution) {
         try {
             delegateAuthChecker.checkAdminAuth(delegateExecution);
+            Integer id = Integer.valueOf(String.valueOf(delegateExecution.getVariable("id")));
             String name = String.valueOf(delegateExecution.getVariable("name"));
             Float weight = Float.valueOf(String.valueOf(delegateExecution.getVariable("weight")).replaceAll(",", "."));
             String consumerInfo = String.valueOf(delegateExecution.getVariable("consumerInfo"));
-            ProductDTO productDtoResult = productService.createProduct(productMapper.toDto(null, name, weight, consumerInfo));
+            ProductDTO productDtoResult = productService.updateProduct(productMapper.toDto(id, name, weight, consumerInfo));
             delegateExecution.setVariable("result", JSON(productDtoResult).toString());
 
         } catch (Throwable throwable) {

@@ -1,10 +1,24 @@
 {
   "components": [
     {
+      "label": "Введите ID продукта:",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0oipbtt",
+        "columns": null
+      },
+      "id": "Field_1pjk4id",
+      "key": "id",
+      "validate": {
+        "pattern": "^[1-9]\\d*$",
+        "minLength": 1
+      }
+    },
+    {
       "label": "Введите название продукта:",
       "type": "textfield",
       "layout": {
-        "row": "Row_0gd3mcy",
+        "row": "Row_0ms21yw",
         "columns": null
       },
       "id": "Field_0tgfqgh",
@@ -47,7 +61,7 @@
     }
   ],
   "type": "default",
-  "id": "product-form",
+  "id": "update-product-form",
   "exporter": {
     "name": "Camunda Modeler",
     "version": "5.11.0"

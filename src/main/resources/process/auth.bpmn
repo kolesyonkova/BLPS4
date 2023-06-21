@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0">
-  <bpmn:process id="rutube-auth-process" name="Авторизация" isExecutable="true">
+  <bpmn:process id="mommy-auth-process" name="Авторизация" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Авторизация">
       <bpmn:outgoing>Flow_04y9ea7</bpmn:outgoing>
     </bpmn:startEvent>
@@ -117,7 +117,7 @@
   </bpmn:process>
   <bpmn:error id="Error_1wo6a3f" name="warriorsError" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="rutube-auth-process">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="mommy-auth-process">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="232" y="372" width="36" height="36" />
         <bpmndi:BPMNLabel>
