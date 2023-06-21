@@ -22,7 +22,7 @@ public class ProductService {
     }
 
     public List<ProductDTO> suggestProducts(String name, int page, int perPage) {
-        List<Product> products = productDbService.findProducts(name.strip(), perPage, (page - 1) * perPage);
+        List<Product> products = productDbService.findProducts(name.strip(), page, perPage);
         return products
                 .stream()
                 .map(productMapper::toDto)
