@@ -2,6 +2,7 @@ package itmo.blps.mommy.controller;
 
 import itmo.blps.mommy.dto.UserDTO;
 import itmo.blps.mommy.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,10 +13,10 @@ import javax.validation.Valid;
 
 
 @RestController
+@AllArgsConstructor
 public class AuthController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @PostMapping(value = "/register",
             produces = "application/json")

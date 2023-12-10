@@ -2,15 +2,16 @@ package itmo.blps.mommy.controller;
 
 import itmo.blps.mommy.dto.ProductDTO;
 import itmo.blps.mommy.service.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
     @GetMapping("/products")
     public ResponseEntity<?> getProducts(
@@ -21,12 +22,12 @@ public class ProductController {
         return ResponseEntity.ok(productService.suggestProducts(name, page, perPage));
     }
 
-    @PostMapping("/admin/product/create")
+    @PostMapping("/admin/products")
     public ResponseEntity<?> createProduct(@RequestBody ProductDTO productDTO) {
         return ResponseEntity.ok(productService.createProduct(productDTO));
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/products/{id}")
     public ResponseEntity<?> getProduct(@PathVariable int id) {
         return ResponseEntity.ok(productService.getProduct(id));
     }

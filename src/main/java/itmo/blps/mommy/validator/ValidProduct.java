@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = ProductValidator.class)
 public @interface ValidProduct {
-    String message() default "Продукт должен существовать в базе данных";
+    String message() default "Unknown product";
 
     String[] properties() default {};
 

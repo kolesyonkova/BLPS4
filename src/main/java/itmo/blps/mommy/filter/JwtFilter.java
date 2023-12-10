@@ -3,6 +3,7 @@ package itmo.blps.mommy.filter;
 import itmo.blps.mommy.config.CustomUserDetails;
 import itmo.blps.mommy.config.CustomUserDetailsService;
 import itmo.blps.mommy.config.jwt.JwtProvider;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,13 +22,12 @@ import static org.springframework.util.StringUtils.hasText;
 
 @Component
 @Slf4j
+@AllArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
     public static final String AUTHORIZATION = "Authorization";
 
-    @Autowired
     private JwtProvider jwtProvider;
 
-    @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
     @Override

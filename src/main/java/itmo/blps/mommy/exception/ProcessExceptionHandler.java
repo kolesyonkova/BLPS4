@@ -25,7 +25,7 @@ public class ProcessExceptionHandler {
 
     @ExceptionHandler({Exception.class})
     public ResponseEntity<?> handleException(Exception e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(e.getMessage());
     }
 
@@ -36,13 +36,18 @@ public class ProcessExceptionHandler {
     }
 
 
-    @ExceptionHandler({ConstraintViolationException.class, BindException.class, MethodArgumentNotValidException.class,
+    @ExceptionHandler({MethodArgumentNotValidException.class})
+    public ResponseEntity<?> handleMethodArgumentException(MethodArgumentNotValidException ex) {
+        String message = "Invalid request parameters:" + getValidationError(ex);
+        return ResponseEntity.badRequest()
+                .body(message);
+    }
+
+
+    @ExceptionHandler({ConstraintViolationException.class, BindException.class,
             MissingServletRequestParameterException.class, IllegalArgumentException.class})
     public ResponseEntity<?> handleValidationException(Exception ex) {
         String message = ex.getMessage();
-        if (ex instanceof MethodArgumentNotValidException) {
-            message = "Некорректные параметры " + getValidationError((MethodArgumentNotValidException) ex);
-        }
         return ResponseEntity.badRequest()
                 .body(message);
     }

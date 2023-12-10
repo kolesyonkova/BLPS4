@@ -2,15 +2,16 @@ package itmo.blps.mommy.controller;
 
 import itmo.blps.mommy.dto.PurchaseRequestDTO;
 import itmo.blps.mommy.service.PurchaseService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 public class PurchaseController {
 
-    @Autowired
-    private PurchaseService purchaseService;
+    private final PurchaseService purchaseService;
 
     @GetMapping("/purchases")
     public ResponseEntity<?> getPurchases(
@@ -21,18 +22,18 @@ public class PurchaseController {
         return ResponseEntity.ok(purchaseService.suggestPurchases(name, page, perPage));
     }
 
-    @PostMapping("/admin/purchase/create")
+    @PostMapping("/admin/purchases")
     public ResponseEntity<?> createPurchase(@RequestBody PurchaseRequestDTO purchaseRequestDTO) throws Exception {
         return ResponseEntity.ok(purchaseService.createPurchase(purchaseRequestDTO));
     }
 
-    @DeleteMapping("/admin/purchase/{id}")
+    @DeleteMapping("/admin/purchases/{id}")
     public ResponseEntity<?> deletePurchase(@PathVariable int id) throws Exception {
         purchaseService.deletePurchase(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/purchase/{id}")
+    @GetMapping("/purchases/{id}")
     public ResponseEntity<?> getPurchase(@PathVariable int id) throws Exception {
         return ResponseEntity.ok(purchaseService.getPurchase(id));
     }
