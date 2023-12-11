@@ -79,7 +79,3 @@ create table user_favorite_products
     dateCreated timestamp,
     primary key (user_id, product_id);
 );
-
-insert into roles (id, name)
-VALUES (1, 'ROLE_USER'),
-       (2, 'ROLE_ADMIN');
