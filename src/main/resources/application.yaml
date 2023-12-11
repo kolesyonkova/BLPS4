@@ -1,0 +1,50 @@
+camunda.bpm.admin-user:
+  id: demo
+  password: demo
+owner:
+  name: dev
+spring:
+  datasource:
+    url: 'jdbc:postgresql://localhost:15432/postgres'
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      ddl-auto: update
+
+  liquibase:
+    change-log: 'classpath:/db.changelog/changelog-master.xml'
+  mail:
+    host: smtp.yandex.ru
+    username: username
+    password: password
+    port: '465'
+    protocol: smtps
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  main:
+    allow-circular-references: true
+  rabbitmq:
+    host: localhost
+    port: '5672'
+    username: guest
+    password: guest
+    queue:
+      name: email-queue
+server:
+  port: '8080'
+mail:
+  debug: true
+jwt:
+  secret: secret
+logging:
+  level:
+    root: info
+swagger:
+  host:
+    url: 'http://localhost:8080/'
+
+
