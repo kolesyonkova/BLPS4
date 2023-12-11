@@ -31,7 +31,7 @@ public class OrderPurchaseService {
     public OrderPurchaseDto addOrderPurchase(OrderPurchaseDto orderPurchaseDto) throws Exception {
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         purchaseRepository.findById(orderPurchaseDto.getPurchaseId())
-                .orElseThrow(() -> new EntityNotFoundException("Сущность выкупа не найдена"));
+                .orElseThrow(() -> new EntityNotFoundException("Unknown purchase"));
         User user = userService.findByEmail(userName);
         UserPurchase userPurchase = userPurchaseDbService.findByUserIdAndPurchaseId(user.getId(), orderPurchaseDto.getPurchaseId());
         userPurchase.setDateCreated(Instant.now());
@@ -53,7 +53,7 @@ public class OrderPurchaseService {
 
     public void deleteOrderPurchase(Integer purchaseId) {
         Purchase purchase = purchaseRepository.findById(purchaseId)
-                .orElseThrow(() -> new EntityNotFoundException("Сущность выкупа не найдена"));
+                .orElseThrow(() -> new EntityNotFoundException("Unknown purchase"));
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findByEmail(userName);
         UserPurchase userPurchase = userPurchaseDbService.findByUserIdAndPurchaseId(user.getId(), purchaseId);

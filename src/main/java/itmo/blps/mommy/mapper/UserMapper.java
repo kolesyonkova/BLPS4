@@ -5,13 +5,14 @@ import itmo.blps.mommy.dto.UserDTO;
 import itmo.blps.mommy.entity.User;
 import itmo.blps.mommy.enums.Roles;
 import itmo.blps.mommy.repository.RoleRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@AllArgsConstructor
 public class UserMapper {
 
-    @Autowired
     private RoleRepository roleRepository;
 
     public UserDTO toDto(User user) {

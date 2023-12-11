@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = UserValidator.class)
 public @interface ValidUser {
-    String message() default "Пользовать должен существовать в базе данных";
+    String message() default "Unknown user";
 
     String[] properties() default {};
 
