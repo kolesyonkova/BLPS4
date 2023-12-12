@@ -32,8 +32,8 @@ public class PurchaseServiceTest {
         int secondId = 2;
         Purchase firstPurchase = new Purchase(null, null, null, PurchaseStatus.CREATED, false);
         Purchase secndPurchase = new Purchase(null, null, null, PurchaseStatus.PAID, false);
-        Mockito.when(purchaseDbService.findById(firstId)).thenReturn(firstPurchase);
-        Mockito.when(purchaseDbService.findById(secondId)).thenReturn(secndPurchase);
+        Mockito.when(purchaseDbService.findById(Mockito.eq(firstId))).thenReturn(firstPurchase);
+        Mockito.when(purchaseDbService.findById(Mockito.eq(secondId))).thenReturn(secndPurchase);
         purchaseService.deletePurchase(firstId);
         assertThrows(RuntimeException.class, () -> purchaseService.deletePurchase(secondId));
     }
